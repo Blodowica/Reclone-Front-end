@@ -5,7 +5,7 @@ export const LogoutButton = () => {
     const { logout, isAuthenticated } = useAuth0();
     return (
         isAuthenticated && (
-            < button onClick={() => logout()} >
+            < button className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" onClick={() => logout()} >
                 Logout
             </button >
 
