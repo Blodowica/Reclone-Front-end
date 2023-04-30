@@ -14,7 +14,7 @@ export default function SideBarComponent() {
     return (
         <CDBSidebar textColor="#fff" backgroundColor="#333" className="d-flex flex-column">
             <CDBSidebarHeader prefix={<i className=""></i>}>
-                <NavLink to="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily: 'Dancing Script', fontStyle: 'normal', fontWeight: 500, fontSize: '3.0rem' }}>
+                <NavLink to="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily: 'Dancing Script', fontStyle: 'normal', fontWeight: 500, fontSize: '4.0rem' }}>
                     Reclone
                 </NavLink>
             </CDBSidebarHeader>

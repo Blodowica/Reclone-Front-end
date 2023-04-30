@@ -4,7 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap');
 
 
-
+:root {
+  /* outline: red dashed 1px */
+}
 
 body {
   margin: 0;

@@ -19,10 +19,10 @@ function App() {
       <div className="Wrapper">
         <Container fluid>
           <Row>
-            <Col xs={12} lg={3} className="sticky-top vh-100 p-0 overflow-auto">
+            <Col xs={2} sm={4} lg={2} className="sticky-top vh-100 p-0 overflow-auto">
               <SideBarComponent />
             </Col>
-            <Col xs={12} lg={9}>
+            <Col xs={10} sm={8} lg={10}>
               <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/feed' element={<FeedPage />} />
