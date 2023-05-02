@@ -1,12 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { BsCloudUpload } from 'react-icons/bs';
 
 const UploadPage = () => {
+    const [dragging, setDragging] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
+
+    const handleDragEnter = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragging(true);
+    };
+
+    const handleDragLeave = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragging(false);
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragging(false);
+
+        const file = e.dataTransfer.files[0];
+        setSelectedFile(file);
+    };
+
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+    };
+
     return (
-        <div>
-            <h1>Upload Page</h1>
+        <Container className="mt-5 mx-auto ">
+            <Form>
+                <Row className="text-center">
+                    <Col>
+                        <h1 style={{ fontFamily: 'Dancing Script', fontStyle: 'normal', fontWeight: 700, fontSize: '3.0vw' }}>
+                            Create your new post
+                        </h1>
+                        <p>Png, Jpeg, Mp4, Mv</p>
+                    </Col>
+                </Row>
+                <Row
+                    className={`d-flex text-center justify-content-center mt-5 mb-3 ${dragging ? 'dragging' : ''}`}
+                    style={{ outline: 'red dashed 1px', outlineOffset: '4px' }}
+                    onDragEnter={handleDragEnter}
+                    onDragLeave={handleDragLeave}
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}
+                >
+                    <Col lg="auto">
+                        <BsCloudUpload style={{ fontSize: '45vh', color: 'c4c4c4' }} />
+                        <Form.Group controlId="formFile" className="mb-3">
+                            <Form.Label>Drop and drag or browse to choose a file</Form.Label>
+                            <Form.Control
+                                type="file"
+                                size="sm"
+                                onChange={handleFileInputChange}
+                            />
+                            {selectedFile && <Form.Text>{selectedFile.name}</Form.Text>}
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Col className="d-flex justify-content-end">
+                    <Button style={{ backgroundColor: 'gray', marginRight: '1vw' }}>
+                        Cancel
+                    </Button>
+                    <Button disabled={!selectedFile}>
+                        Next
+                    </Button>
+                </Col>
+            </Form>
             {/* <Link to={'/testing'}><h1>Testing</h1></Link> */}
-        </div>
-    )
-}
-export default UploadPage
+        </Container>
+    );
+};
+
+export default UploadPage;

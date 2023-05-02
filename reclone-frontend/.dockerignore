@@ -1,0 +1,16 @@
+# Files and directories to ignore when building a Docker image for a ReactJS application
+
+# Node.js modules
+node_modules/
+
+# Build artifacts
+build/
+*.log
+
+# Editor files
+.vscode/
+.idea/
+
+# Miscellaneous
+.dockerignore
+.DS_Store
