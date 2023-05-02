@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { BsCloudUpload } from 'react-icons/bs';
 
@@ -31,6 +30,7 @@ const UploadPage = () => {
 
         const file = e.dataTransfer.files[0];
         setSelectedFile(file);
+        document.getElementById('formFile').value = '';
     };
 
     const handleFileInputChange = (e) => {
@@ -39,7 +39,7 @@ const UploadPage = () => {
     };
 
     return (
-        <Container className="mt-5 mx-auto ">
+        <Container className="mt-5 mx-auto">
             <Form>
                 <Row className="text-center">
                     <Col>
@@ -62,6 +62,7 @@ const UploadPage = () => {
                         <Form.Group controlId="formFile" className="mb-3">
                             <Form.Label>Drop and drag or browse to choose a file</Form.Label>
                             <Form.Control
+
                                 type="file"
                                 size="sm"
                                 onChange={handleFileInputChange}
@@ -79,7 +80,6 @@ const UploadPage = () => {
                     </Button>
                 </Col>
             </Form>
-            {/* <Link to={'/testing'}><h1>Testing</h1></Link> */}
         </Container>
     );
 };
