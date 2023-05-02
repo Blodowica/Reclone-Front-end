@@ -6,12 +6,13 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import HomePage from './View/homepageComponent';
 import ErrorComponent from './components/ErrorComponent';
 import NavBarComponent from './components/NavBarComponent';
-import FeedPage from './View/FeedPageComponent';
 import UploadPage from './View/UploadPageComponent';
 import ProfilePage from './View/ProfilePageComponent';
 import SideBarComponent from './components/SideBarComponent';
 import SearchPage from './View/SearchPageComponent';
 import { Col, Container, Row } from 'react-bootstrap';
+import ProfileViewComponent from './View/profileViewComponent';
+import ExplorePage from './View/ExplorePageComponent';
 
 function App() {
   return (
@@ -19,17 +20,18 @@ function App() {
       <div className="Wrapper">
         <Container fluid>
           <Row>
-            <Col xs={2} sm={4} lg={2} className="sticky-top vh-100 p-0 overflow-auto">
+            <Col xs={2} md={3} sm={2} lg={2} xl={2} className="sticky-top vh-100 p-0 overflow-auto">
               <SideBarComponent />
             </Col>
-            <Col xs={10} sm={8} lg={10}>
+            <Col xs={10} md={9} sm={10} lg={10} xl={10}>
               <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='/feed' element={<FeedPage />} />
+                <Route path='/Explore' element={<ExplorePage />} />
                 <Route path='/upload' element={<UploadPage />} />
                 <Route path='/profile' element={<ProfilePage />} />
                 <Route path='/search' element={<SearchPage />} />
                 <Route path='/testing' element={<div>testing Page</div>} />
+                <Route path='/test' element={<ProfileViewComponent />} />
                 {/* In case the user types a URL that does not exist, return the error component */}
                 <Route path='*' element={<ErrorComponent />} />
               </Routes>

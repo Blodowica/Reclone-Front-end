@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../StyleSheets/ProfileStyling.css'
+import { Container } from 'react-bootstrap';
 
 const ProfilePage = () => {
     return (
@@ -8,7 +9,7 @@ const ProfilePage = () => {
 
             <header>
 
-                <div className="container">
+                <Container>
 
                     <div className="profile">
 
@@ -51,7 +52,7 @@ const ProfilePage = () => {
                     </div>
                     {/* <!-- End of profile section --> */}
 
-                </div>
+                </Container>
                 {/* <!-- End of container --> */}
 
             </header>

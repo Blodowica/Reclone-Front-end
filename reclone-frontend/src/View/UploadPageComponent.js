@@ -43,7 +43,7 @@ const UploadPage = () => {
             <Form>
                 <Row className="text-center">
                     <Col>
-                        <h1 style={{ fontFamily: 'Dancing Script', fontStyle: 'normal', fontWeight: 700, fontSize: '3.0vw' }}>
+                        <h1 style={{ fontFamily: 'Dancing Script', fontStyle: 'normal', fontWeight: 700, fontSize: '3.0rem' }}>
                             Create your new post
                         </h1>
                         <p>Png, Jpeg, Mp4, Mv</p>
@@ -51,14 +51,14 @@ const UploadPage = () => {
                 </Row>
                 <Row
                     className={`d-flex text-center justify-content-center mt-5 mb-3 ${dragging ? 'dragging' : ''}`}
-                    style={{ outline: 'red dashed 1px', outlineOffset: '4px' }}
+                    style={{ outline: '#c4c4c4   dashed 2px', borderRadius: '2%' }}
                     onDragEnter={handleDragEnter}
                     onDragLeave={handleDragLeave}
                     onDragOver={handleDragOver}
                     onDrop={handleDrop}
                 >
                     <Col lg="auto">
-                        <BsCloudUpload style={{ fontSize: '45vh', color: 'c4c4c4' }} />
+                        <BsCloudUpload style={{ fontSize: '35vh', color: 'c4c4c4' }} />
                         <Form.Group controlId="formFile" className="mb-3">
                             <Form.Label>Drop and drag or browse to choose a file</Form.Label>
                             <Form.Control
