@@ -13,7 +13,7 @@ function LoginPageComponent() {
                 <Col className='' lg={6} >
                     <Row className='d-flex justify-content-center' xs={12}>
                         <Col className='d-flex justify-content-center' xs={12}>
-                            <img className='' src="../../RecloneLogo.svg" />
+                            <img className='' src="../../RecloneLogo.png" />
                         </Col>
                     </Row>
                     <Row className='mt-5'>

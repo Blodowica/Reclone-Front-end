@@ -19,8 +19,8 @@ export default function SideBarComponent() {
                 </NavLink>
             </CDBSidebarHeader>
 
-            <CDBSidebarContent className="sidebar-content flex-grow-1">
-                <CDBSidebarMenu>
+            <CDBSidebarContent className="sidebar-content flex-grow-1" >
+                <CDBSidebarMenu className='d-flex align-self-stretch' >
                     <NavLink to="/home" end>
                         <CDBSidebarMenuItem icon="home">Home</CDBSidebarMenuItem>
                     </NavLink>
@@ -36,6 +36,10 @@ export default function SideBarComponent() {
                     <NavLink to="/profile" end>
                         <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
                     </NavLink>
+                    <NavLink to="/profile" end>
+                        <CDBSidebarMenuItem icon="list">More</CDBSidebarMenuItem>
+                    </NavLink>
+
                 </CDBSidebarMenu>
             </CDBSidebarContent>
         </CDBSidebar>
