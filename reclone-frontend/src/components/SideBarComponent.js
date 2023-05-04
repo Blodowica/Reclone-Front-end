@@ -14,14 +14,14 @@ export default function SideBarComponent() {
     return (
         <CDBSidebar textColor="#fff" backgroundColor="#333" className="d-flex flex-column">
             <CDBSidebarHeader prefix={<i className=""></i>}>
-                <NavLink to="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily: 'Dancing Script', fontStyle: 'normal', fontWeight: 500, fontSize: '3.5rem' }}>
+                <NavLink to="/home" className="text-decoration-none" style={{ color: 'inherit', fontFamily: 'Dancing Script', fontStyle: 'normal', fontWeight: 500, fontSize: '3.5rem' }}>
                     Reclone
                 </NavLink>
             </CDBSidebarHeader>
 
-            <CDBSidebarContent className="sidebar-content flex-grow-1">
-                <CDBSidebarMenu>
-                    <NavLink to="/" end>
+            <CDBSidebarContent className="sidebar-content flex-grow-1" >
+                <CDBSidebarMenu className='d-flex align-self-stretch' >
+                    <NavLink to="/home" end>
                         <CDBSidebarMenuItem icon="home">Home</CDBSidebarMenuItem>
                     </NavLink>
                     <NavLink to="/search" end>
@@ -36,6 +36,10 @@ export default function SideBarComponent() {
                     <NavLink to="/profile" end>
                         <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
                     </NavLink>
+                    <NavLink to="/profile" end>
+                        <CDBSidebarMenuItem icon="list">More</CDBSidebarMenuItem>
+                    </NavLink>
+
                 </CDBSidebarMenu>
             </CDBSidebarContent>
         </CDBSidebar>
