@@ -11,6 +11,7 @@ import SearchPage from './View/SearchPageComponent';
 import { Col, Container, Row } from 'react-bootstrap';
 import ExplorePage from './View/ExplorePageComponent';
 import LoginPageComponent from './View/LoginPageComponent';
+import SettingsPageComponent from './View/SettingsPageComponent';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                       <Route path='/upload' element={<UploadPage />} />
                       <Route path='/profile' element={<ProfilePage />} />
                       <Route path='/search' element={<SearchPage />} />
+                      <Route path='/settings' element={<SettingsPageComponent />} />
                       <Route path='/testing' element={<div>testing Page</div>} />
                       {/* In case the user types a URL that does not exist, return the error component */}
                       <Route path='*' element={<ErrorComponent />} />
