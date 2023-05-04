@@ -9,7 +9,6 @@ import ProfilePage from './View/ProfilePageComponent';
 import SideBarComponent from './components/SideBarComponent';
 import SearchPage from './View/SearchPageComponent';
 import { Col, Container, Row } from 'react-bootstrap';
-import ProfileViewComponent from './View/profileViewComponent';
 import ExplorePage from './View/ExplorePageComponent';
 import LoginPageComponent from './View/LoginPageComponent';
 
@@ -24,7 +23,7 @@ function App() {
             <div className="Wrapper">
               <Container fluid>
                 <Row>
-                  <Col xs={2} md={3} sm={2} lg={2} xl={2} className="sticky-top vh-100 p-0 overflow-auto">
+                  <Col xs={2} md={3} sm={2} lg={2} xl={2} className="sticky-top vh-100 p-0 overflow-hidden">
                     <SideBarComponent />
                   </Col>
                   <Col xs={10} md={9} sm={10} lg={10} xl={10}>
@@ -35,7 +34,6 @@ function App() {
                       <Route path='/profile' element={<ProfilePage />} />
                       <Route path='/search' element={<SearchPage />} />
                       <Route path='/testing' element={<div>testing Page</div>} />
-                      <Route path='/test' element={<ProfileViewComponent />} />
                       {/* In case the user types a URL that does not exist, return the error component */}
                       <Route path='*' element={<ErrorComponent />} />
                     </Routes>
