@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LoginButton from './LoginComponent';
 import LogoutButton from './LogoutComponent';
+import Popover from 'react-bootstrap/Popover';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -9,18 +10,28 @@ import {
     CDBSidebarMenu,
     CDBSidebarMenuItem,
 } from 'cdbreact';
-import { Col, Container, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Container, Modal, OverlayTrigger, Row } from 'react-bootstrap';
 
 export default function SideBarComponent() {
-    const [showModal, setShowModal] = useState(false);
 
-    const handleModalClose = () => {
-        setShowModal(false);
-    };
+    const popover = (
+        <Popover id="popover-basic">
+            <Popover.Header as="h3">Popover right</Popover.Header>
+            <Popover.Body>
+                <Col>
+                    <Button>Settings</Button>
+                </Col>
+                <Col>
+                    <Button>Saved</Button>
+                </Col>
+                <Col>
+                    <Button>Logout</Button>
+                </Col>
 
-    const handleModalOpen = () => {
-        setShowModal(true);
-    };
+
+            </Popover.Body>
+        </Popover>
+    );
 
     return (
         <Container className='d-flex p-0' style={{ height: '100%' }}>
@@ -66,7 +77,11 @@ export default function SideBarComponent() {
                                     <CDBSidebarContent className="sidebar-content flex-grow-1">
                                         <CDBSidebarMenu className='d-flex align-self-stretch'>
                                             <Col className='align-self-end'>
-                                                <CDBSidebarMenuItem icon="list" onClick={handleModalOpen}>More</CDBSidebarMenuItem>
+                                                <OverlayTrigger trigger="click" placement="top" overlay={popover}
+
+                                                >
+                                                    <CDBSidebarMenuItem icon="list" >More</CDBSidebarMenuItem>
+                                                </OverlayTrigger>
                                             </Col>
                                         </CDBSidebarMenu>
                                     </CDBSidebarContent>
@@ -77,14 +92,7 @@ export default function SideBarComponent() {
                 </CDBSidebarContent>
             </CDBSidebar>
 
-            <Modal show={showModal} onHide={handleModalClose} centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>More</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>Modal content goes here...</p>
-                </Modal.Body>
-            </Modal>
+
         </Container>
     );
 }
