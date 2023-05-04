@@ -16,7 +16,7 @@ export default function SideBarComponent() {
 
     const popover = (
         <Popover id="popover-basic">
-            <Popover.Header as="h3">Popover right</Popover.Header>
+
             <Popover.Body>
                 <Col>
                     <Button>Settings</Button>
@@ -77,7 +77,7 @@ export default function SideBarComponent() {
                                     <CDBSidebarContent className="sidebar-content flex-grow-1">
                                         <CDBSidebarMenu className='d-flex align-self-stretch'>
                                             <Col className='align-self-end'>
-                                                <OverlayTrigger trigger="click" placement="top" overlay={popover}
+                                                <OverlayTrigger trigger="focus" placement="top" overlay={popover}
 
                                                 >
                                                     <CDBSidebarMenuItem icon="list" >More</CDBSidebarMenuItem>
