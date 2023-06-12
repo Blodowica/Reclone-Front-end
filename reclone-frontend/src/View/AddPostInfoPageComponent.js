@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Col, Container, Form, Image, InputGroup, Row } from 'react-bootstrap';
 import { BsEmojiSmile } from 'react-icons/bs';
+import api from '../API/Interceptor';
 
 function AddPostInfoPageComponent(props) {
     const { file, onCancel } = props;
@@ -22,6 +23,46 @@ function AddPostInfoPageComponent(props) {
 
     const handleCancel = () => {
         onCancel();
+    };
+
+    const handleShare = () => {
+        if (file.type.startsWith('image/')) {
+            // Create a new FormData object
+            const formData = new FormData();
+            formData.append('file', file);
+
+            // Send the POST request to upload image
+            api.post('Images/upload', formData)
+                .then(response => {
+                    // Handle the response
+                    console.log('Image upload successful');
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    // Handle the error
+                    console.error('Image upload failed');
+                    console.error(error);
+                });
+        } else if (file.type.startsWith('video/')) {
+            // Create a new FormData object
+            const formData = new FormData();
+            formData.append('video', file);
+
+            // Send the POST request to upload video
+            api.post('Images/uploadVideo', formData)
+                .then(response => {
+                    // Handle the response
+                    console.log('Video upload successful');
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    // Handle the error
+                    console.error('Video upload failed');
+                    console.error(error);
+                });
+        } else {
+            console.error('Unsupported file type');
+        }
     };
 
     return (
@@ -67,7 +108,7 @@ function AddPostInfoPageComponent(props) {
             <Row className='pt-3 text-end align-self-bottom'>
                 <Col className=''>
                     <Button className='mr-1' variant='secondary' onClick={handleCancel}>Cancel</Button>
-                    <Button>Share</Button>
+                    <Button onClick={handleShare}>Share</Button>
                 </Col>
             </Row>
         </Container>
